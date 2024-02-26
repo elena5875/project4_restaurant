@@ -7,13 +7,20 @@
     <title>THE FORK RESTAURANT</title>
     <!-- Include CSS styles -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <style>
+        header {
+            background-size: cover;
+            background-position: center;
+            color: white; 
+        }
+    </style>
 </head>
 <body>
     <!-- Include navigation within header -->
-    <header>
+    <header class="header">
         {% include 'navigation.html' %}
     </header>
-
+    
     <!-- Home section -->
     <section id="home">
         <h1>Welcome to The Fork Restaurant</h1>
@@ -25,6 +32,13 @@
 
     <!-- Include JavaScript -->
     <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var header = document.querySelector('.header');
+            var imageUrl = 'https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg';
+            header.style.backgroundImage = 'url(' + imageUrl + ')';
+        });
+    </script>
 
     <!-- Footer section -->
     <footer>
@@ -32,5 +46,3 @@
     </footer>
 </body>
 </html>
-
-

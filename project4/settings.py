@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+# Check if the environment file exists and import it
 if os.path.isfile('env.py'):
     import env
 
@@ -28,6 +33,7 @@ SECRET_KEY = 'django-insecure-$k3y!#_g1xtxgnwz)k+-)))4+r6=^3t-xyk7)9j+0l&=l=1b_1
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =  False
+
 
 ALLOWED_HOSTS = [
     '8000-elena5875-project4resta-k57v6av2xsw.ws-eu108.gitpod.io',
@@ -84,13 +90,6 @@ WSGI_APPLICATION = 'project4.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
@@ -136,6 +135,14 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # Add the project-level static directory
 ]
+
+
+# Cloudinary configuration
+cloudinary.config(
+    cloud_name="your_cloud_name",
+    api_key="your_api_key",
+    api_secret="your_api_secret"
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
