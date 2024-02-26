@@ -4,20 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>THE FORK RESTAURANT</title>
     <!-- Include CSS styles -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-    <!-- Include JavaScript -->
-    <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
-    <ul>
-        <li><a href="{% url 'about' %}">ABOUT US</a></li>
-        <li><a href="{% url 'menu' %}">MENU</a></li>
-        <li><a href="{% url 'reservation' %}">RESERVATION</a></li>
-        <li><a href="{% url 'gallery' %}">GALLERY</a></li>
-        <li><a href="{% url 'reviews' %}">REVIEWS</a></li>
-        <li><a href="{% url 'contact' %}">CONTACT US</a></li>
-    </ul>
+    <!-- Include navigation within header -->
+    <header>
+        {% include 'navigation.html' %}
+    </header>
+
+    <!-- Home section -->
+    <section id="home">
+        <h1>Welcome to The Fork Restaurant</h1>
+        <p>Where all palates will have a wonderful time tasting all the delicacies 
+            made from the freshest and finest ingredients! Our aim is to make your dining
+            experience a memorable one!!
+        </p>
+    </section>
+
+    <!-- Include JavaScript -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2024 Your Restaurant Name. All rights reserved.</p>
+    </footer>
 </body>
 </html>
+
+
