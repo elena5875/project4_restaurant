@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE FORK RESTAURANT</title>
-    <!-- Include CSS styles -->
+    <!--  CSS styles -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <style>
         header {
@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-    <!-- Include navigation within header -->
+    <!--  navigation within header -->
     <header class="header">
         {% include 'navigation.html' %}
     </header>
@@ -30,7 +30,7 @@
         </p>
     </section>
 
-    <!-- Include JavaScript -->
+    <!-- JavaScript -->
     <script src="{% static 'js/script.js' %}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -42,7 +42,12 @@
 
     <!-- Footer section -->
     <footer>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/your-facebook-page" class="facebook-icon"></a>
+            <a href="https://www.instagram.com/your-instagram-page" class="instagram-icon"></a>
+        </div>
         <p>&copy; 2024 Your Restaurant Name. All rights reserved.</p>
     </footer>
+    
 </body>
 </html>

@@ -16,11 +16,12 @@ body {
 
 /* Header styles */
 .header {
-    background-image: url("{% cloudinary 'https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg' %}");
+    background-image: url("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg"); 
     background-size: cover;
     background-position: center;
     color: white;
-    height: 30vh; 
+    height: 30vh;               /* change the height here */
+    margin-bottom: 20px;
 }
 
 nav ul {
@@ -55,9 +56,39 @@ section h1, section h2 {
 
 /* Footer styles */
 footer {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Align items to the start and end of the container */
     background-color: #333;
     color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: auto; 
+    padding: 20px; /* Adjust padding as needed */
+    margin: 80px 0; /* Adjust margin as needed */
+    text-align: left; /* Align text to the left */
+}
+
+.social-icons {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Align items vertically in the center */
+}
+
+.social-icons a {
+    margin-left: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Facebook icon */
+.facebook-icon {
+    background-image: url("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709145560/facebook_si0l95.png");
+    width: 30px;
+    height: 30px;
+}
+
+/* Instagram icon */
+.instagram-icon {
+    background-image: url("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709145560/instagram_kywtcn.png");
+    width: 30px;
+    height: 30px;
 }
