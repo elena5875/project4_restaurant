@@ -16,11 +16,11 @@ body {
 
 /* Header styles */
 .header {
-    background-image: url("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg"); 
     background-size: cover;
     background-position: center;
-    color: white;
-    height: 30vh;               /* change the height here */
+    color: black; 
+    text-align: center; 
+    height: 30vh; /* Change height here */
     margin-bottom: 20px;
 }
 
@@ -43,7 +43,6 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-
 /* Section styles */
 section {
     padding: 50px 0;
@@ -56,18 +55,18 @@ section h1, section h2 {
 
 /* Footer styles */
 footer {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Align items to the start and end of the container */
+    display: flex; 
+    justify-content: space-between;
     background-color: #333;
     color: #fff;
-    padding: 20px; /* Adjust padding as needed */
-    margin: 80px 0; /* Adjust margin as needed */
-    text-align: left; /* Align text to the left */
+    padding: 20px; /* Adjust padding here */
+    margin: 50px 80px; /* Adjust margin here */
+    text-align: left; /* change align here */
 }
 
 .social-icons {
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Align items vertically in the center */
+    display: flex; 
+    align-items: center; 
 }
 
 .social-icons a {
