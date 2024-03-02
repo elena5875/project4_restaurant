@@ -29,7 +29,24 @@
             made from the freshest and finest ingredients! Our aim is to make your dining
             experience a memorable one!!
         </p>
+        <a href="{% url 'menu' %}">View Our Menu</a>
+        <!-- About Section -->
+        <h2>About Us</h2>
+        <p>Our restaurant was founded by two Famous Chef that has decided to create a fusion of menus that will excite both your eyes and your palate. The Menus </p>
+        <p>We are located in the heart of Stockholm but the restaurant building is an Old Castle dating back in the 1900's</p>
     </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <!-- Add your gallery content here -->
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809877/icecream_ouue3d.jpg" alt="icecream_ouue3d" width="200" height="150">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809892/lecheflan_jq6fa7.jpg" alt="lecheflan_jq6fa7" width="200" height="150">
+            <!-- Add more images as needed -->
+        </div>
+    </section>
+    
 
     <!-- JavaScript -->
     <script src="{% static 'js/script.js' %}"></script>
@@ -42,13 +59,13 @@
     </script>
 
     <!-- Footer section -->
-    <footer>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/your-facebook-page" class="facebook-icon"></a>
-            <a href="https://www.instagram.com/your-instagram-page" class="instagram-icon"></a>
-        </div>
-        <p>&copy; 2024 Your Restaurant Name. All rights reserved.</p>
-    </footer>
-    
+        <footer>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/your-facebook-page"><img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709145560/facebook_si0l95.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/your-instagram-page"><img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709145560/instagram_kywtcn.png" alt="Instagram"></a>
+            </div>
+            <p>&copy; 2024 THE FORK. All rights reserved.</p>
+        </footer>
+        
 </body>
 </html>

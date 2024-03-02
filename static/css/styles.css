@@ -20,7 +20,7 @@ body {
     background-position: center;
     color: black; 
     text-align: center; 
-    height: 30vh; /* Change height here */
+    height: 50vh; /* Change height here */
     margin-bottom: 20px;
 }
 
@@ -53,41 +53,39 @@ section h1, section h2 {
     margin-bottom: 20px;
 }
 
+.gallery img {
+    width: 200px; /* Set width for the images */
+    height: 150px; /* Set height for the images */
+}
+
+
+
 /* Footer styles */
 footer {
-    display: flex; 
-    justify-content: space-between;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
     background-color: #333;
     color: #fff;
     padding: 20px; /* Adjust padding here */
-    margin: 50px 80px; /* Adjust margin here */
-    text-align: left; /* change align here */
+    margin-top: auto; /* Push footer to the bottom */
+    width: 100%; /* Ensure footer spans the entire width */
+    position: fixed; /* Fixed position to stick at the bottom */
+    left: 0;
+    bottom: 0;
+    text-align: center; /* Center-align text */
 }
 
 .social-icons {
-    display: flex; 
-    align-items: center; 
+    margin-bottom: 70px; /* Add margin between social icons and copyright text */
 }
 
 .social-icons a {
-    margin-left: 10px;
+    margin: 0 30px; /* Set margin around social icons */
 }
 
 .social-icons img {
-    width: 30px;
-    height: 30px;
-}
-
-/* Facebook icon */
-.facebook-icon {
-    background-image: url("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709145560/facebook_si0l95.png");
-    width: 30px;
-    height: 30px;
-}
-
-/* Instagram icon */
-.instagram-icon {
-    background-image: url("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709145560/instagram_kywtcn.png");
-    width: 30px;
-    height: 30px;
+    width: 70px; /* Set width for the icons */
+    height: 70px; /* Set height for the icons */
 }
