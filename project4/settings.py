@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+# settings.py
 
 from pathlib import Path
 import os
@@ -32,13 +33,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$k3y!#_g1xtxgnwz)k+-)))4+r6=^3t-xyk7)9j+0l&=l=1b_1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =  False
-
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-elena5875-project4resta-k57v6av2xsw.ws-eu108.gitpod.io',
-    '.herokuapp.com']
-
+    '.herokuapp.com'
+]
 
 # Application definition
 
@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'restaurant',
+    'corsheaders',
+    'formtools',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +62,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://8000-elena5875-project4resta-k57v6av2xsw.ws-eu108.gitpod.io",
+    # Add any other origins as needed
+]
+
 
 ROOT_URLCONF = 'project4.urls'
 
@@ -69,7 +79,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),  
-            os.path.join(BASE_DIR, 'restaurant', 'templates'),  
         ],
                 
         'APP_DIRS': True,
@@ -79,6 +88,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static',
             ],
         },
     },
@@ -86,15 +96,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project4.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.config(
+        default='postgres://lrkpmvoi:uIAT5RXI3cjF5OdnLcqQTj1k2lENNCPz@abul.db.elephantsql.com/lrkpmvoi'
+    )
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -114,7 +123,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -126,7 +134,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -137,15 +144,25 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-
 # Cloudinary configuration
-cloudinary.config(
-    cloud_name="your_cloud_name",
-    api_key="your_api_key",
-    api_secret="your_api_secret"
-)
+# Check if running in Heroku environment
+if 'DYNO' in os.environ:
+    # Use environment variables for Cloudinary configuration
+    cloudinary.config(
+        cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
+        api_key=os.environ.get('CLOUDINARY_API_KEY'),
+        api_secret=os.environ.get('CLOUDINARY_API_SECRET')
+    )
+else:
+    # Use hardcoded configuration for local development
+    cloudinary.config(
+        cloud_name="dh5i9qtjf",
+        api_key="771193164774472",
+        api_secret="7ekPLUqJq0Od4eD2zBi5gufWl7w"
+    )
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

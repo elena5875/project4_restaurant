@@ -1,3 +1,4 @@
+/*styles.css*/
 /* Resetting default margin and padding */
 html, body, h1, h2, h3, p, ul, li {
     margin: 0;
@@ -57,6 +58,7 @@ section h1, section h2 {
     width: 200px; /* Set width for the images */
     height: 150px; /* Set height for the images */
 }
+
 
 
 

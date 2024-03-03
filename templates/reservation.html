@@ -1,12 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservation</title>
-</head>
-<body>
-    <h1>Make a Reservation</h1>
-    <!-- Add your reservation form or reservation details here -->
-</body>
-</html>
+<!-- reservation.html -->
+
+
+{% extends 'home.html' %}
+
+{% block head %}
+    {% load static %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+    {% endblock head %}
+
+    {% block content %}
+    
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-3">Make a Reservation</h2>
+            <form id="reservationForm" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time:</label>
+                    <select class="form-control" id="time" name="time" required>
+                        <option value="">Select Time</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="num_people">Number of People:</label>
+                    <input type="number" class="form-control" id="num_people" name="num_people" min="1" max="9" required>
+                    <small id="numPeopleHelp" class="form-text text-muted">For groups larger than 9 people, please call us at <a href="tel:079546783">079546783</a> to make a reservation.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Reservation Confirmation Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">Reservation Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Reservation details and confirmation form will be inserted here dynamically -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include forms.css -->
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+
+<!-- Include jQuery from CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    // Handle form submission
+    $('#reservationForm').submit(function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+        
+        // Serialize form data
+        var formData = $(this).serialize();
+        
+        // Send an AJAX request to handle form submission
+        $.ajax({
+            type: 'POST',
+            url: '/reservation/', // Update the URL with your endpoint
+            data: formData,
+            success: function(response) {
+                // Populate the modal with the confirmation details
+                $('#confirmationModal .modal-body').html(response);
+                // Show the modal
+                $('#confirmationModal').modal('show');
+            },
+            error: function(xhr, errmsg, err) {
+                console.log(xhr.status + ": " + xhr.responseText); // Log any errors
+            }
+        });
+    });
+});
+</script>
+
+<!-- Your script for generating time options -->
+<script>
+$(document).ready(function() {
+    // Generate time options from 5 pm to 11 pm
+    var selectTime = $('#time');
+    for (var hour = 17; hour <= 23; hour++) {
+        var displayHour = (hour % 12 == 0) ? 12 : hour % 12; // Convert to 12-hour format
+        var ampm = (hour < 12 || hour == 24) ? 'AM' : 'PM';
+        selectTime.append($('<option>').val(hour).text(displayHour + ':00 ' + ampm));
+    }
+});
+</script>
+{% endblock %}

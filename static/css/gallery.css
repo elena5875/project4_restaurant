@@ -1,0 +1,31 @@
+/* Styles for the gallery page */
+
+/* Set background color or image for the gallery */
+.gallery-container {
+    background-color: #f9f9f9; /* Example background color */
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow images to wrap to the next line */
+    justify-content: center; /* Center align images horizontally */
+}
+
+/* Style individual images in the gallery */
+.gallery-image {
+    /* Set margin around images */
+    margin: 10px;
+    /* Set maximum width for images to prevent them from overflowing */
+    max-width: 300px;
+    /* Add box shadow for a slight elevation effect */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    /* Add border-radius for rounded corners */
+    border-radius: 5px;
+    /* Add transition for smooth hover effect */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Add hover effect for images */
+.gallery-image:hover {
+    /* Scale up image slightly on hover */
+    transform: scale(1.05);
+}
+
+/* Additional styles for captions, borders, etc. */
