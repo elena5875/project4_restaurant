@@ -8,12 +8,11 @@ def reservation(request):
         form = ReservationForm(request.POST)
         if form.is_valid():
             # Process the form data (e.g., save to database)
-            # Redirect to confirmation page
-            return redirect('confirmation_page')
+            # For now, let's assume we don't save the form data, just render a confirmation message
+            return render(request, 'reservation_confirmation.html')  # Render the confirmation template
     else:
         form = ReservationForm()
     return render(request, 'reservation.html', {'form': form})
-
 
 def home(request):
     return render(request, 'home.html')

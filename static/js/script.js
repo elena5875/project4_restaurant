@@ -22,17 +22,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
- 
-
-//time function
-
-$(document).ready(function() {
-    // Generate time options from 5 pm to 11 pm
-    var selectTime = $('#time');
-    for (var hour = 17; hour <= 23; hour++) {
-        var displayHour = (hour % 12 == 0) ? 12 : hour % 12; // Convert to 12-hour format
-        var ampm = (hour < 12 || hour == 24) ? 'AM' : 'PM';
-        selectTime.append($('<option>').val(hour).text(displayHour + ':00 ' + ampm));
-    }
-});
-</script>

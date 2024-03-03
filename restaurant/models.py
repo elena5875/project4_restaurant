@@ -1,3 +1,5 @@
+#models.py
+
 from django.db import models
 
 class Reservation(models.Model):
@@ -10,3 +12,4 @@ class Reservation(models.Model):
 
     def __str__(self):
         return f"Reservation for {self.num_people} people on {self.date} at {self.time}"
+

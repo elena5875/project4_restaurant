@@ -29,7 +29,6 @@ urlpatterns = [
     path('gallery/', gallery, name='gallery'),
     path('reviews/', reviews, name='reviews'),
     path('contact/', contact, name='contact'), 
-    path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 
